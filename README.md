@@ -49,7 +49,6 @@ ActionBaton is a lightweight, developer-friendly Java library for internal workf
 
 > **Note**: The libraries are currently not published to Maven Central. This section will be updated once they are available.
 
----
 
 ## 📖 Quick Start
 

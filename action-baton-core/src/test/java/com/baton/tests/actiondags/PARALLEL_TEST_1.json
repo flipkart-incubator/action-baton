@@ -1,0 +1,22 @@
+{
+  "rootAction": {
+    "executor": "PARALLEL",
+    "properties" : {
+      "parallel" : {
+        "timeout" : 5000,
+        "threadCount" : 2
+      }
+    },
+    "actions": [
+      {
+        "name": "PRINT_TASK"
+      },
+      {
+        "name": "PRINT_EVEN_TASK"
+      },
+      {
+        "name": "PRINT_ODD_TASK"
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "rootAction": {
+    "executor": "SEQUENTIAL",
+    "actions": [
+      {
+        "executor": "PARALLEL",
+        "properties": {
+          "parallel": {
+            "timeout": 5000,
+            "threadCount": 2
+          }
+        },
+        "actions": [
+          {
+            "name": "PRINT_TASK"
+          },
+          {
+            "name": "PRINT_EVEN_TASK"
+          },
+          {
+            "name": "PRINT_ODD_TASK"
+          }
+        ]
+      },
+      {
+        "executor": "SEQUENTIAL",
+        "actions": [
+          {
+            "name": "PRINT_TASK"
+          },
+          {
+            "name": "PRINT_EVEN_TASK"
+          },
+          {
+            "name": "PRINT_ODD_TASK"
+          },
+          {
+            "executor": "CONDITIONAL",
+            "properties": {
+              "conditional": {
+                "predicateName": "EvenPredicate"
+              }
+            },
+            "actions": [
+              {
+                "name": "PRINT_EVEN_TASK"
+              },
+              {
+                "name": "PRINT_ODD_TASK"
+              }
+            ]
+          },
+          {
+            "executor": "ITERATOR",
+            "properties": {
+              "iterator": {
+                "iteratorName": "RANDOM_INT_ITERATOR"
+              }
+            },
+            "actions": [
+              {
+                "name": "PRINT_INTEGER_ACTION"
+              }
+            ]
+          },
+          {
+            "name": "PRINT_ACTION_WITH_MAPPER_TASK",
+            "mapperName": "SampleMapper"
+          }
+        ]
+      }
+    ]
+  }
+}

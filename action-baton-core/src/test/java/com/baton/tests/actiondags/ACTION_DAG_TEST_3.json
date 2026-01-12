@@ -1,0 +1,20 @@
+{
+  "rootAction": {
+    "executor": "SEQUENTIAL",
+    "actions": [
+      {
+        "name": "PRINT_TASK"
+      },
+      {
+        "executor" : "ACTION_DAG",
+        "name" : "MIXED_TEST_1"
+      },
+      {
+        "name": "PRINT_EVEN_TASK"
+      },
+      {
+        "name": "PRINT_ODD_TASK"
+      }
+    ]
+  }
+}

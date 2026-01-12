@@ -1,0 +1,6 @@
+{
+  "rootAction": {
+    "executor": "ACTION_DAG",
+    "name" : "SEQUENTIAL_TEST_2"
+  }
+}

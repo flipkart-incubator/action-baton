@@ -1,0 +1,6 @@
+{
+  "rootAction": {
+    "executor": "ACTION_DAG",
+    "name" : "BASIC_TEST_1"
+  }
+}

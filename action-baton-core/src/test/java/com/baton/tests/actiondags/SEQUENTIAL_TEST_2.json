@@ -1,0 +1,49 @@
+{
+  "rootAction": {
+    "executor": "SEQUENTIAL",
+    "actions": [
+      {
+        "executor": "SEQUENTIAL",
+        "actions": [
+          {
+            "name": "PRINT_TASK"
+          },
+          {
+            "name": "PRINT_EVEN_TASK"
+          },
+          {
+            "name": "PRINT_ODD_TASK"
+          }
+        ]
+      },
+      {
+        "executor": "SEQUENTIAL",
+        "actions": [
+          {
+            "name": "PRINT_TASK"
+          },
+          {
+            "name": "PRINT_EVEN_TASK"
+          },
+          {
+            "name": "PRINT_ODD_TASK"
+          }
+        ]
+      },
+      {
+        "executor": "SEQUENTIAL",
+        "actions": [
+          {
+            "name": "PRINT_TASK"
+          },
+          {
+            "name": "PRINT_EVEN_TASK"
+          },
+          {
+            "name": "PRINT_ODD_TASK"
+          }
+        ]
+      }
+    ]
+  }
+}

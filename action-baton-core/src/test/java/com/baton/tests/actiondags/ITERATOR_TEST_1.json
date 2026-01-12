@@ -1,0 +1,15 @@
+{
+  "rootAction": {
+    "executor": "ITERATOR",
+    "properties" : {
+      "iterator" : {
+        "iteratorName" : "RANDOM_INT_ITERATOR"
+      }
+    },
+    "actions": [
+      {
+        "name": "PRINT_INTEGER_ACTION"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "rootAction": {
+    "name": "PRINT_ACTION_WITH_MAPPER_TASK",
+    "executor": "MAPPER",
+    "properties" : {
+      "mapper" : {
+        "mapperName" : "SampleMapper"
+      }
+    }
+  }
+}

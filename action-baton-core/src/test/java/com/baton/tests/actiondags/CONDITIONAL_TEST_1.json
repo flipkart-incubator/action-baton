@@ -1,0 +1,18 @@
+{
+  "rootAction": {
+    "executor": "CONDITIONAL",
+    "properties" : {
+      "conditional" : {
+        "predicateName" : "EvenPredicate"
+      }
+    },
+    "actions": [
+      {
+        "name": "PRINT_EVEN_TASK"
+      },
+      {
+        "name": "PRINT_ODD_TASK"
+      }
+    ]
+  }
+}

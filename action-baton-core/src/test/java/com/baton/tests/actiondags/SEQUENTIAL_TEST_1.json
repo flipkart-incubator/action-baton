@@ -1,0 +1,16 @@
+{
+  "rootAction": {
+    "executor": "SEQUENTIAL",
+    "actions": [
+      {
+        "name": "PRINT_TASK"
+      },
+      {
+        "name": "PRINT_EVEN_TASK"
+      },
+      {
+        "name": "PRINT_ODD_TASK"
+      }
+    ]
+  }
+}

@@ -35,7 +35,7 @@ This document provides detailed code examples for implementing the core interfac
 The `ActionExecutionContext` is the central state management object. You should extend it to define your own shared context type.
 
 ```java
-import com.baton.entities.ActionExecutionContext;
+import com.flipkart.actionbaton.entities.ActionExecutionContext;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,8 +61,8 @@ public class ActionExecutionContextImpl extends ActionExecutionContext<String, M
 Actions are the basic units of work. Implement `IAction` to define your business logic.
 
 ```java
-import com.baton.entities.IAction;
-import com.baton.entities.ActionExecutionContext;
+import com.flipkart.actionbaton.entities.IAction;
+import com.flipkart.actionbaton.entities.ActionExecutionContext;
 
 public class PrintAction implements IAction<ActionExecutionContextImpl, Exception> {
     @Override
@@ -90,7 +90,7 @@ public class PrintAction implements IAction<ActionExecutionContextImpl, Exceptio
 Predicates are used for conditional branching in workflows.
 
 ```java
-import com.baton.entities.IPredicate;
+import com.flipkart.actionbaton.entities.IPredicate;
 
 public class EvenPredicate implements IPredicate<ActionExecutionContextImpl, Exception> {
     @Override
@@ -113,7 +113,7 @@ public class EvenPredicate implements IPredicate<ActionExecutionContextImpl, Exc
 Iterators generate a list of items to be processed by an action.
 
 ```java
-import com.baton.entities.IIterator;
+import com.flipkart.actionbaton.entities.IIterator;
 import java.util.List;
 
 public class NumberIterator implements IIterator<ActionExecutionContextImpl, Integer> {
@@ -137,8 +137,8 @@ public class NumberIterator implements IIterator<ActionExecutionContextImpl, Int
 Mappers allow you to decouple your actions from the main context by transforming data into specific objects.
 
 ```java
-import com.baton.entities.IMapper;
-import com.baton.commons.utils.ActionBatonConstants;
+import com.flipkart.actionbaton.entities.IMapper;
+import com.flipkart.actionbaton.commons.utils.ActionBatonConstants;
 
 public class OrderMapper implements IMapper<ActionExecutionContextImpl, Order, Exception> {
     @Override
@@ -170,8 +170,8 @@ public class OrderMapper implements IMapper<ActionExecutionContextImpl, Order, E
 The orchestrator is used to resolve components by name, which is essential for JSON-driven workflows.
 
 ```java
-import com.baton.orchestrator.impl.BaseActionOrchestrator;
-import com.baton.entities.*;
+import com.flipkart.actionbaton.orchestrator.impl.BaseActionOrchestrator;
+import com.flipkart.actionbaton.entities.*;
 
 public class MyOrchestrator extends BaseActionOrchestrator {
     @Override

@@ -20,7 +20,7 @@
    <modelVersion>4.0.0</modelVersion>
 
    <parent>
-      <groupId>com.baton</groupId>
+      <groupId>com.flipkart.actionbaton</groupId>
       <artifactId>action-baton-parent</artifactId>
       <version>1.0.0</version>
    </parent>

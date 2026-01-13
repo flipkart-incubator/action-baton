@@ -19,7 +19,7 @@ limitations under the License.
 [![Java](https://img.shields.io/badge/Java-17+-orange.svg)](https://openjdk.java.net/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-ActionBaton is a lightweight, developer-friendly Java library for internal workflow orchestration. It supports sequential, parallel, conditional, and mixed execution patterns with minimal dependencies.
+ActionBaton is a lightweight, developer-friendly Java library for internal workflow orchestration. It supports sequential, parallel, conditional, and mixed execution patterns with minimal dependencies. Built with simplicity in mind, it is an open-source project that welcomes community contributions.
 
 ---
 
@@ -32,6 +32,7 @@ ActionBaton is a lightweight, developer-friendly Java library for internal workf
 - [Detailed Code Examples](docs/EXAMPLES.md)
 - [Comparison and Real-World Use Cases](docs/COMPARISON_AND_USE_CASES.md)
 - [Architecture](#-architecture)
+- [Contributing](#-contributing)
 - [Contributors](#-contributors)
 - [License](#-license)
 
@@ -203,8 +204,14 @@ ActionBaton uses a layered approach:
 
 ---
 
+## 🤝 Contributing
+We welcome contributions from the community! Whether you are fixing a bug, adding a new feature, or improving documentation, your help is appreciated. Feel free to:
+- Submit Pull Requests
+- Report issues
+- Suggest new features
+
 ## 👥 Contributors
-- **Mridul Mundara** - [mridul.mundara@flipkart.com](mailto:mridul.mundara@flipkart.com)
+ActionBaton is built by developers, for developers. We are always looking for new contributors to join our journey!
 
 ---
 

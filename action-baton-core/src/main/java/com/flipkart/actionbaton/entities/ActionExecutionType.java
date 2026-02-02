@@ -52,5 +52,10 @@ public enum ActionExecutionType {
     /**
      * Complex Directed Acyclic Graph (DAG) based execution.
      */
-    ACTION_DAG
+    ACTION_DAG,
+
+    /**
+     * Execution with retry logic.
+     */
+    RETRY
 }

@@ -19,6 +19,7 @@ import com.flipkart.actionbaton.entities.executor.ConditionalExecutorEntity;
 import com.flipkart.actionbaton.entities.executor.IteratorExecutorProperties;
 import com.flipkart.actionbaton.entities.executor.MapperExecutorProperties;
 import com.flipkart.actionbaton.entities.executor.ParallelExecutorProperties;
+import com.flipkart.actionbaton.entities.executor.RetryExecutorProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -49,6 +50,11 @@ public class ActionProperties {
      * Properties for iterator-based execution.
      */
     private IteratorExecutorProperties iterator;
+
+    /**
+     * Properties for retry execution.
+     */
+    private RetryExecutorProperties retry;
 }
 
 

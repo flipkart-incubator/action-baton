@@ -15,9 +15,6 @@
  */
 package com.flipkart.actionbaton.executor.impl;
 
-import com.flipkart.actionbaton.entities.ActionExecutionContext;
-import com.flipkart.actionbaton.entities.IAction;
-import com.flipkart.actionbaton.exception.ActionBatonException;
 import com.flipkart.actionbaton.executor.builder.*;
 
 
@@ -97,4 +94,11 @@ public class ActionBatonBuilderFactory {
      * @return A {@link IActionDagExecutorBuilder} instance.
      */
     public IActionDagExecutorBuilder getActionDagActionBuilder() { return new ActionDagExecuteBuilder();}
+
+    /**
+     * Returns a builder for creating retry action executors.
+     *
+     * @return A {@link IRetryActionBuilder} instance.
+     */
+    public IRetryActionBuilder getRetryBuilder() { return new RetryActionBuilder(); }
 }

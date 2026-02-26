@@ -64,7 +64,6 @@ public abstract class BaseActionOrchestrator implements IActionOrchestrator {
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings({"rawtypes", "unchecked"})
     public final void executeActionDag(ActionExecutionContext context, ActionDagEntity actionDagEntity) throws Exception {
         if(actionDagEntity == null || actionDagEntity.getRootAction() == null) {
             assert actionDagEntity != null;
@@ -78,7 +77,6 @@ public abstract class BaseActionOrchestrator implements IActionOrchestrator {
      * {@inheritDoc}
      */
     @Override
-    @SuppressWarnings({"rawtypes"})
     public final void executeActionDag(ActionExecutionContext context, String actionDag)
             throws Exception {
         try {
@@ -96,7 +94,6 @@ public abstract class BaseActionOrchestrator implements IActionOrchestrator {
      * @return The built {@link IAction} instance.
      * @throws ActionBatonException if the configuration is invalid.
      */
-    @SuppressWarnings("rawtypes")
     private IAction execute(ActionEntity actionEntity) throws ActionBatonException {
         if(actionEntity == null) {
             return null;
@@ -122,7 +119,6 @@ public abstract class BaseActionOrchestrator implements IActionOrchestrator {
      * @return The resolved executor.
      * @throws ActionBatonException if the execution type is unsupported.
      */
-    @SuppressWarnings("rawtypes")
     private IAction getAction(ActionEntity actionEntity, List<IAction> actions) throws ActionBatonException {
         return switch (actionEntity.getExecutor()) {
             case DEFAULT -> getDefaultAction(actionEntity);
@@ -132,7 +128,6 @@ public abstract class BaseActionOrchestrator implements IActionOrchestrator {
             case MAPPER -> getMapperAction(actionEntity);
             case ITERATOR -> getIteratorAction(actionEntity, actions);
             case ACTION_DAG -> getActionDagActionBaton(actionEntity, actions);
-            case RETRY -> getRetryAction(actionEntity, actions);
             default -> throw new ActionBatonException(ActionBatonException.ErrorCode.ACTION_ENTITY_VALIDATION_FAILED);
         };
     }
@@ -144,7 +139,6 @@ public abstract class BaseActionOrchestrator implements IActionOrchestrator {
      * @return The built action.
      * @throws ActionBatonException if building fails.
      */
-    @SuppressWarnings("rawtypes")
     private IAction getDefaultAction(ActionEntity actionEntity) throws ActionBatonException {
         IAction underlyingAction;
         
@@ -169,7 +163,6 @@ public abstract class BaseActionOrchestrator implements IActionOrchestrator {
      * @return The parallel action.
      * @throws ActionBatonException if configuration is invalid.
      */
-    @SuppressWarnings("rawtypes")
     private IAction getParallelAction(ActionEntity actionEntity, List<IAction> actions) throws ActionBatonException {
         if(actions.isEmpty()) {
             throw new ActionBatonException(ActionBatonException.ErrorCode.ACTION_ENTITY_VALIDATION_FAILED,
@@ -192,7 +185,6 @@ public abstract class BaseActionOrchestrator implements IActionOrchestrator {
      * @return The conditional action.
      * @throws ActionBatonException if configuration is invalid.
      */
-     @SuppressWarnings("rawtypes")
      private IAction getConditionalAction(ActionEntity actionEntity, List<IAction> actions) throws ActionBatonException {
         if(actions.isEmpty()) {
             throw new ActionBatonException(ActionBatonException.ErrorCode.ACTION_ENTITY_VALIDATION_FAILED,
@@ -223,7 +215,6 @@ public abstract class BaseActionOrchestrator implements IActionOrchestrator {
      * @return The mapper action.
      * @throws ActionBatonException if configuration is invalid.
      */
-     @SuppressWarnings("rawtypes")
      private IAction getMapperAction(ActionEntity actionEntity) throws ActionBatonException {
         MapperExecutorProperties properties = actionEntity.getProperties().getMapper();
         if(properties == null ||  isNullOrEmpty(properties.getMapperName())) {
@@ -246,7 +237,6 @@ public abstract class BaseActionOrchestrator implements IActionOrchestrator {
      * @return The iterator action.
      * @throws ActionBatonException if configuration is invalid.
      */
-    @SuppressWarnings("rawtypes")
     private IAction getIteratorAction(ActionEntity actionEntity, List<IAction> actions) throws ActionBatonException {
         IteratorExecutorProperties properties = actionEntity.getProperties().getIterator();
 
@@ -270,7 +260,6 @@ public abstract class BaseActionOrchestrator implements IActionOrchestrator {
      * @return The DAG action.
      * @throws ActionBatonException if configuration is invalid.
      */
-    @SuppressWarnings("rawtypes")
     private IAction getActionDagActionBaton(ActionEntity actionEntity, List<IAction> actions)
             throws ActionBatonException {
         if(!actions.isEmpty()) {
@@ -295,29 +284,6 @@ public abstract class BaseActionOrchestrator implements IActionOrchestrator {
                 .actionDag(actionDagEntity).dynamicActionDag(dynamicActionDagMapper)
                 .orchestrator(this);
         return actionDagBuilder.build();
-    }
-
-    /**
-     * Builds a retry action executor.
-     *
-     * @param actionEntity The action entity.
-     * @param actions Child actions (exactly 1).
-     * @return The retry action.
-     * @throws ActionBatonException if configuration is invalid.
-     */
-    @SuppressWarnings("rawtypes")
-    private IAction getRetryAction(ActionEntity actionEntity, List<IAction> actions) throws ActionBatonException {
-        if (actions.size() != 1) {
-            throw new ActionBatonException(ActionBatonException.ErrorCode.ACTION_ENTITY_VALIDATION_FAILED,
-                    actionEntity.getName(), actionEntity.getExecutor().toString());
-        }
-
-        IRetryActionBuilder actionBuilder = this.actionBaton.getRetryBuilder().action(actions.get(0));
-        if (actionEntity.getProperties() != null && actionEntity.getProperties().getRetry() != null) {
-            actionBuilder.properties(actionEntity.getProperties().getRetry());
-        }
-
-        return actionBuilder.build();
     }
 
     /**
